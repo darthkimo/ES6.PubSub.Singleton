@@ -7,12 +7,12 @@ A lightweight es6 PubSub class (Singleton).
 
 ```javascript
 import PubSub from './PubSub.js';
-
-const subscription = PubSub.subscribe( 'event1', testSubscriber );
 ```
 
 ### Subscribe to new event with a custom callback
 ```javascript
+const topic = PubSub.subscribe( 'event', callback );
+// or if you don't need to unsubscribe
 PubSub.subscribe('event', callback)
 ```
 
@@ -23,6 +23,5 @@ PubSub.publish('event', {data})
 
 ### Unsubscribe from a specific topic
 ```javascript
-
-PubSub.unsubscribe(subscription);
+PubSub.unsubscribe(topic );
 ```
