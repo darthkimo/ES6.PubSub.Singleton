@@ -12,12 +12,6 @@ class PubSub {
      * @type {Object}
      */
     this.topics_ = {};
-    /**
-     * A topic identifier
-     * @private
-     * @type {number}
-     */
-    this.subUid_ = -1;
   }
 
   /**
@@ -26,14 +20,14 @@ class PubSub {
    * @public
    * @param {string} topic
    * @param {function} callback
-   * @return {string} token
+   * @return {Symbol} token
    */
   subscribe(topic, callback) {
     if (!this.topics_[topic]) {
       this.topics_[topic] = [];
     }
     // eslint-disable-next-line no-plusplus
-    const token = (++this.subUid_).toString();
+    const token = Symbol('id');
     this.topics_[topic].push({
       token: token,
       callback: callback,
