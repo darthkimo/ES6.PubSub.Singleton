@@ -87,4 +87,4 @@ class PubSub {
   }
 }
 
-export default new PubSub;
+export default new PubSub();
